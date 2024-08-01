@@ -31,6 +31,7 @@ class StoreUserRequest extends FormRequest
             'phone' => 'regex:/[0-9]{10,11}/|nullable',
             'cellphone' => 'required|regex:/[0-9]{11}/',
             'role' => 'required|in:' . join(",", UserRole::values()),
+            'password' => 'nullable|min:8|confirmed'
         ];
     }
 
@@ -54,6 +55,8 @@ class StoreUserRequest extends FormRequest
             'cellphone.regex' => __("O celular informado não é válido"),
             'role.required' => __("O perfil de acesso é obrigatório"),
             'role.in' => __("O perfil de acesso informado não é válido"),
+            'password.min' => __("A senha precisa ter, no mínimo, 8 caracteres"),
+            'password.confirmed' => __("As senhas informadas não são iguais"),
         ];
     }
 }

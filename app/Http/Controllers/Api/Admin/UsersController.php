@@ -32,8 +32,13 @@ class UsersController extends Controller
     public function store(StoreUserRequest $request)
     {
         $data = $request->validated();
-        $password = Str::password(12, true, true, false, false);
-        $user = $this->usersRepository->create([...$data, 'password' => $password]);
+
+        if (!isset($data['password']) && empty($data['password'])) {
+            $password = Str::password(12, true, true, false, false);
+            $data['password'] = $password;
+        }
+
+        $user = $this->usersRepository->create($data);
         return response()->json($user, 201);
     }
 
