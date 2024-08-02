@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
             'role' => UserRole::ADMIN,
         ]);
 
-        User::factory(25)->create();
+        // User::factory(25)->create();
 
         VipArea::factory()->create([
             'name' => "Área VIP Tabapuã"
