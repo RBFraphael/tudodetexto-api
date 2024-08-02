@@ -53,6 +53,6 @@ class User extends Authenticatable implements JWTSubject
 
     public function vipAreas(): HasManyThrough
     {
-        return $this->hasManyThrough(VipArea::class, UserVipArea::class, 'vip_area_id', 'id', 'id', 'user_id');
+        return $this->hasManyThrough(VipArea::class, UserVipArea::class, 'user_id', 'id', 'id', 'vip_area_id');
     }
 }

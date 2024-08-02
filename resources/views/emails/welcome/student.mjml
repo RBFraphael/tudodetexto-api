@@ -1,0 +1,31 @@
+<mjml>
+  <mj-body>
+    <mj-section>
+      <mj-column>
+
+        <mj-image width="250px" height="72px" src="{{ $logo_url }}"></mj-image>
+
+        <mj-divider border-color="#004F6B"></mj-divider>
+
+        <mj-text font-size="20px" font-weight="bold" color="#004F6B" font-family="helvetica">Olá, {{ $first_name }}!</mj-text>
+
+        <mj-text font-size="12px" font-family="helvetica" line-height="14px">Seja bem-vindo(a) à Tudo de Texto! Para acessar os conteúdos disponibilizados, acesse nossa plataforma com as credenciais abaixo. Ah, a sua senha foi gerada <b>automaticamente</b> pelo sistema, então ninguém, além de você, tem acesso a ela. Mas, por questões de segurança, recomendamos que altere sua senha.</mj-text>
+
+        <mj-text font-size="16px" font-weight="bold" color="#004F6B" font-family="helvetica">Dados de Acesso:</mj-text>
+
+        <mj-text font-family="helvetica" font-size="12px" line-height="14px">
+          <b>Link da plataforma:</b> <a href="{{ $frontend_url }}" target="_blank">{{ $frontend_url }}</a>
+          <br />
+          <b>Endereço de e-mail:</b> {{ $email }}
+          <br />
+          <b>Senha:</b> {{ $password }}
+        </mj-text>
+
+        <mj-text font-size="12px" font-family="helvetica" line-height="14px">Caso precise de auxílio adicional, por favor, entre em contato conosco.</mj-text>
+
+        <mj-text font-size="12px" font-family="helvetica" line-height="14px">Com carinho,<br />Cris Tudo de Texto.</mj-text>
+
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

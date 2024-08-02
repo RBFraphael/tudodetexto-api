@@ -26,7 +26,7 @@ class VipArea extends Model
 
     public function users(): HasManyThrough
     {
-        return $this->hasManyThrough(User::class, UserVipArea::class, 'user_id', 'id', 'id', 'vip_area_id');
+        return $this->hasManyThrough(User::class, UserVipArea::class, 'vip_area_id', 'id', 'id', 'user_id');
     }
 
     public function directory(): BelongsTo

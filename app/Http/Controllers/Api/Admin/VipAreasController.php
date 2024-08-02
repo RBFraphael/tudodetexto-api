@@ -70,7 +70,7 @@ class VipAreasController extends Controller
         $input = $request->validated();
 
         UserVipArea::updateOrCreate([
-            'user_id' => $input->user_id,
+            'user_id' => $input['user_id'],
             'vip_area_id' => $vipArea->id
         ], []);
 
@@ -84,7 +84,7 @@ class VipAreasController extends Controller
         $input = $request->validated();
 
         UserVipArea::where([
-            'user_id' => $input->user_id,
+            'user_id' => $input['user_id'],
             'vip_area_id' => $vipArea->id
         ])->delete();
 

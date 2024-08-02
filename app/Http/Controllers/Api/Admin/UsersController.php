@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Api\Admin;
 
+use App\Enums\UserRole;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Users\StoreUserRequest;
 use App\Http\Requests\Admin\Users\UpdateUserRequest;
+use App\Mail\UserWelcomeMail;
 use App\Models\User;
 use App\Repositories\UsersRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class UsersController extends Controller
@@ -39,6 +42,13 @@ class UsersController extends Controller
         }
 
         $user = $this->usersRepository->create($data);
+
+        if ($user->role == UserRole::STUDENT) {
+            Mail::to($user->email, $user->first_name)->send(
+                new UserWelcomeMail($user, $data['password'])
+            );
+        }
+
         return response()->json($user, 201);
     }
 
